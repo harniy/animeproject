@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -9,7 +9,7 @@ urlpatterns = [
     path('slider/', views.Slider.as_view(), name='slider'),
     path('category/', views.FilterCategory.as_view(), name='category'),
     path('random/', views.RandomAnime.as_view(), name='random'),
-    path('(?P<id>\d+)/favorite/$', views.favourite_post, name='favourite'),
+    re_path('(?P<id>\d+)/favorite/$', views.favourite_post, name='favourite'),
     path('favorites/', views.favourite_list, name='favourite_list'),
     path('accounts/profile/', views.accountSettings, name='profile'),
     path('last_update/', views.LastUpdate.as_view(), name='last_update'),

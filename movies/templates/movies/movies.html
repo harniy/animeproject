@@ -4,11 +4,12 @@
 {% block movie %}
 
 
-                    <div class="left-ads-display col-lg-9">
+                    <div class="left-ads-display col-lg-9 col-md-12">
                         <div class="row movie_height">
 
+
                             {% for movie in movie_list %}
-                            <div class="col-md-4 product-men">
+                            <div class="col-md-6 product-men">
                                 <div class="product-shoe-info editContent text-center mt-lg-4" >
                                     <div class="men-thumb-item">
                                         <a href="{{ movie.get_absolute_url }}"><img src="{{ movie.poster.url }}" class="img-fluid main_img" alt="" ></a>

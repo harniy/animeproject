@@ -1,9 +1,10 @@
 <div class="deal-leftmk left-side">
-    <a href="{% url 'last_update' %}" style="color: ">
-                            <h3 class="sear-head editContent last_url">Последние обновления</h3>
+    <a href="{% url 'last_update' %}" style=" margin:top:10px;">
+        <h3 class="sear-head editContent last_url d-none d-md-none d-lg-block">Последние обновления</h3>
+        <h3 class="sear-head editContent last_url d-lg-none d-md-block" style="margin:auto;">Последние обновления</h3>
     </a>
     {% for movie in last_movies %}
-            <div class="special-sec1 row mt-3 editContent">
+            <div class="special-sec1 row mt-3 editContent  d-md-none d-lg-flex d-sm-flex">
                 <div class="img-deals col-md-4">
                     <img src="{{ movie.poster.url }}" class="img-fluid img-resize" alt="">
                 </div>

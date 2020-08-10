@@ -1677,7 +1677,7 @@ h3.edit_name {
 }
 
 .gallery {
-    width: 80%;
+    width: 100%;
 
 iframe {
     text-align:center;
@@ -1685,10 +1685,7 @@ iframe {
 }
 .breadcrumb {
     padding: 0.75rem 1rem;
-
 }
-
-
 
 
 .owl-carousel .owl-item img {
