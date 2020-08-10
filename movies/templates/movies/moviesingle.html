@@ -1,0 +1,258 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+
+     {% block title %} {{ movie.title }} {% endblock title %}
+        {% block meta %} смотреть онлайн аниме {{ movie.title }}, {{ movie.name }} все серии все сезоны аниме {{movie.year}} аниме романтика фентези сенэн драма{% endblock meta %}
+
+    {% block vk %}
+        <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+    {% endblock vk %}
+            {% block container %}
+                <div class="container py-md-3">
+            {% endblock container %}
+
+{% block movie %}
+<div class="left-ads-display col-lg-8">
+                    <div class="row">
+                        <div class="desc1-left col-md-6">
+                            <center>
+                                <img src="{{ movie.poster.url }}" class="img-fluid" alt="">
+                            </center>
+                        </div>
+                        <div class="desc1-right col-md-6 pl-lg-4">
+                            <h3 class="editContent edit_name" style="outline: none; cursor: inherit;">
+                                 {{ movie.title|capfirst }}
+                                </h3>
+                            <h5 class="editContent">
+                                 {{ movie.name }}
+                            </h5>
+
+                            <ul>
+                                <li style="list-style: none"><span><b>Просмотров: </b> {{ movie.views }}</span></li>
+
+
+                                <li style="list-style: none">
+                                <li style="list-style: none"><span><b>Год: </b> {{ movie.year }}</span></li>
+
+
+                                <li style="list-style: none">
+                                    <span><b>Режиссер: </b>
+                                        {% for director in movie.directors.all %}
+                                             {{ director.name }}
+                                        {% endfor %}
+                                    </span></li>
+
+                                <li style="list-style: none"><span><b>Жанр: </b>
+                                    {% for genre in movie.genres.all %}
+                                    <a href="/genre/?genre={{genre.id}}">
+                                         {{ genre.name }}
+                                        </a>
+                                    {% endfor %}
+                                </span>
+                                </li>
+
+
+
+                                <li style="list-style: none">
+                                        <b>Рейтинг:</b>
+                                        <div class="wpac-rating" data-wpac-chan="{{ movie.name }}" style="width=80%"></div>
+
+                                 <li style="list-style: none">
+
+                                <li style="list-style: none"><span><b>Избранное:</b></i>
+
+                                {% if is_favorite %}
+                                <a href="{% url 'favourite' id=movie.id %}">
+                                    <i class="far fa-bookmark" style="padding-left: 10px; color: #ff4c4c;"></i>
+                                </a>
+                                {% else %}
+                                <a href="{% url 'favourite' id=movie.id %}">
+                                    <i class="far fa-bookmark" style="padding-left: 10px;"></i>
+                                </a>
+                                {% endif %}
+                                </span></li>
+
+
+                                </li>
+                                <div class="share-desc">
+                                    <div class="share" style="padding-top: 5px;">
+                                        <h4 class="editContent"
+                                            style="outline: none; cursor: inherit;">
+                                            Поделиться:</h4>
+                                        <ul class="w3layouts_social_list list-unstyled">
+                                            <li>
+
+                                                    <script type="text/javascript"><!--
+                                                        document.write(VK.Share.button(false,{type: "custom",
+                                                        text: "<img src=\"/static/images/soc_icons/vk.png\" width=\"42\" height=\"42\" />"}));
+                                                    --></script>
+
+                                            </li>
+                                            <li>
+                                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="soc_icon">
+                                                    <img style="height: 36px; width: 36px;" src="/static/images/soc_icons/twitter.png" alt="">
+                                                </a>
+                                                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                            </li>
+                                            <li>
+                                                <a href="https://t.me/share/url?url=http://127.0.0.1:8000/{{movie.url}}&text={{movie.title}}" class="soc_icon">
+                                                    <img style="height: 40px; width: 40px;" src="/static/images/soc_icons/telegram.png" alt="">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.instagram.com/c_h_i_l_l_e_d.s_o_u_l/" target="_blank" class="soc_icon">
+                                                    <img style="height: 38px; width: 38px;" src="/static/images/soc_icons/instagram.png" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row sub-para-w3layouts mt-5">
+
+                        <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
+                            Описание {{ movie.title }}</h3>
+
+
+                        <p class="center_img">
+
+                            {% for image in movie.movieshots_set.all %}
+                                <img src=" {{ image.image.url }}" class="img-fluid" alt="{{ img.description }}">
+                            {% endfor %}
+
+                        </p>
+
+
+                        <p class="editContent" style="outline: none; cursor: inherit;">
+                            {{ movie.description|safe }}
+                        </p>
+
+
+                    </div>
+    <hr>
+    <br><br><br>
+    <div class="player-main">
+        {% for anime in movie.serias_set.all %}
+<!--        <div id="yohoho" data-kinopoisk="{{anime.description}}" data-tmdb="{{anime.imdb}}"></div>-->
+<!--        <script src="//yohoho.cc/yo.js"></script>-->
+        <div id="yohoho"
+     data-kinopoisk="{{anime.description}}"
+     data-player="{{anime.dataplayer}}">
+</div>
+            <script src="//yohoho.cc/yo.js"></script>
+         {% endfor %}
+
+    </div>
+
+    <br><br>
+
+
+        </div>
+                    <hr>
+
+                    <div class="row rev_center">
+
+
+                        <div class="single-form-left">
+
+                            <!-- contact form grid -->
+
+                            <div class="contact-single" style="padding-bottom: 60px;">
+                                <h3 class="editContent com-form" style="outline: none; cursor: inherit;">
+                                    <span class="sub-tittle editContent"
+                                          style="outline: none; cursor: inherit;">Комментариев: {{ movie.comment_set.count }}</span>Оставить отзыв</h3>
+                                <br><br><br>
+                                <form method="post" class="mt-4 com-form" id="formReview" action=".">
+                                    {% csrf_token %}
+                                <input type="hidden" name="comment_id" id="contactparent" value="{{ comment.id }}">
+
+                                    {{ form.as_p }}
+                                    {% if request.user.is_authenticated %}
+                                    <input type="submit" value="Отправить" class="mt-3 btn btn-success btn-block py-3">
+                                    {% else %}
+                                    <input type="submit" value="Отправить" class="mt-3 btn btn-success btn-block py-3" disabled>
+                                    {% endif %}
+                                </form>
+
+                            </div>
+
+
+
+                            <!--  //contact form grid ends here -->
+                        </div>
+
+
+                    {% for comment in movie.get_comment %}
+
+                        <div class="media py-5 rew-field">
+
+                            <div class="comment_avatar">
+                            <img src="{{comment.user.profile.avatar.url }}" class="mr-3 img_com" alt="image"
+                                 style="outline: none; cursor: inherit;">
+                                </div>
+                            <div class="comm-content">
+                                <h5 class="mt-0 editContent"
+                                    style="outline: none; cursor: inherit;">{{ comment.user|capfirst }}</h5>
+                                <p class="mt-2 editContent word-space" style="outline: none; cursor: inherit; word-break: break-all; font-size: 16px">
+                                        {{ comment.content }}
+                                </p>
+                                {% if request.user.is_authenticated %}
+                                <a href="#formReview" onclick="addReview('{{comment.user}}', '{{comment.id}}')">Ответить</a>
+<!--                                <button type="button" name="button" class="reply-btn btn btn-success btn-sm"">Ответить</button>-->
+                                {% endif %}
+
+
+                     <!-- Ответы на комментарии начало-->
+
+
+                                <div class="replied-comments container my-2" id="replied-comments">
+                                    {% for reply in comment.replies.all %}
+
+                                        <div class="media-2 mt-5 editContent"-->
+                                            <div class="comment_avatar2">
+                                            <img src="{{reply.user.profile.avatar.url }}" class="mr-3 img_com" alt="image"
+                                            style="outline: none; cursor: inherit;">
+                                        </div>
+                                          <div class="comm-content2">
+
+                                              <h5 class="mt-0 editContent" style="outline: none; cursor: inherit;">{{ reply.user|capfirst }}</h5>
+
+                                            <p class="mt-2 editContent word-space" style="outline: none; cursor: inherit; word-break: break-all;">
+
+                                                      {{ reply.content }}
+                                             </p>
+
+                                           </div>
+                                        </div>
+
+                                    {% endfor %}
+                                </div>
+                                <hr>
+
+                             <!-- Ответы на комментарии конец-->
+
+                            </div>
+                            </div>
+                     {% endfor %}
+
+
+
+                    </div>
+
+
+                </div>
+</div>
+                     <script>
+                          function addReview(name, id) {
+                              document.getElementById("contactparent").value = id;
+                              document.getElementById("id_content").innerText = `${name}, `
+                           }
+                     </script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v7.0" nonce="UBBeXc7J"></script>
+
+{% endblock movie %}

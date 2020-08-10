@@ -1,0 +1,32 @@
+<div class="gallery">
+          <div class="owl-carousel owl-theme">
+    <div class="owl-stage-outer">
+        <div class="owl-stage">
+            {% for slider in slider %}
+            <div class="owl-item">
+                <a href="../{{ slider.url }}"><img class="image__own" src="{{slider.poster.url}}" alt="">
+                <div class="image__overlay image__overlay--blur">
+                    <div class="image__description">{{slider.title}}</div>
+                </div></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+   </div>
+
+<script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+            items:8,
+            autoWidth: true,
+            nav: false,
+            loop: true,
+            margin: 5,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            });
+        });
+    </script>

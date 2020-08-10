@@ -1,0 +1,47 @@
+{% load movie_tags %}
+<div class="side-bar col-lg-3">
+
+                        <div class="search-bar w3layouts-newsletter">
+                            <h3 class="sear-head editContent" >Поиск фильма</h3>
+                            <form action="{% url 'search' %}" method="get" class="d-flex editContent" >
+                                {% csrf_token %}
+                                <input type="search" placeholder="Введите название..." name="q" class="form-control" required="">
+                                <button type="submit" class="btn1 btn" ><span class="fa fa-search" aria-hidden="true" ></span></button>
+                            </form>
+                        </div>
+                        <!--preference -->
+
+{% get_genre %}
+
+
+                        <!-- // preference -->
+                          <!-- discounts -->
+<div class="left-side">
+        <h3 class="sear-head editContent" >Год</h3>
+             <ul class="w3layouts-box-list">
+                 <li class="editContent" >
+                         <a href="../filter/?year=2020" type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                          <span class="span editContent" >2020</a>
+                     </li>
+                 <li class="editContent" >
+                         <a href="../filter/?year=2019" type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                          <span class="span editContent" >2019</a>
+                     </li>
+                 <li class="editContent" >
+                         <a href="../filter/?year=2018" type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                          <span class="span editContent" >2018</a>
+                     </li>
+
+             </ul>
+</div>
+
+
+                        <!-- //discounts -->
+                        <!-- reviews -->
+
+                        <!-- //reviews -->
+                        <!-- deals -->
+
+                        <!-- //deals -->
+ {% get_last_movies %}
+                    </div>
