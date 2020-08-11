@@ -1390,6 +1390,15 @@ a.move-top span {
     .bottom-gd.fea h3 {
         font-size: 0.9em;
     }
+    .center_img img {
+        display:none;
+    }
+    .shop-sing {
+        font-size: 35px !important;
+    }
+    p{
+        font-size: 20px !important;
+    }
 }
 
 @media(max-width:800px) {

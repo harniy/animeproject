@@ -120,13 +120,13 @@
                         <p class="center_img">
 
                             {% for image in movie.movieshots_set.all %}
-                                <img src=" {{ image.image.url }}" class="img-fluid" alt="{{ img.description }}">
+                                <img src=" {{ image.image.url }}" class="img-fluid col-md-3" alt="{{ img.description }}">
                             {% endfor %}
 
                         </p>
 
 
-                        <p class="editContent" style="outline: none; cursor: inherit;">
+                        <p class="editContent movie_descr" style="outline: none; cursor: inherit;">
                             {{ movie.description|safe }}
                         </p>
 
