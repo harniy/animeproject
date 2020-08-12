@@ -74,6 +74,7 @@ class Movie(models.Model):
     time = models.DateTimeField(default=datetime.now)
     favor = models.ManyToManyField(User, related_name='favor', blank=True)
 
+
     def __str__(self):
         return self.title
 
@@ -156,3 +157,4 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
