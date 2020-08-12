@@ -7,7 +7,6 @@ from .forms import CustomerForm, CommentForm
 from django.db.models import Q
 
 
-
 # def blog_post(request, post_id):
 #     #your code
 #     blog_object = Movie.objects.get(id=post_id)
@@ -52,9 +51,6 @@ def accountSettings(request):
     return render(request, 'account/profile.html', context)
 
 
-
-
-
 class MoviesView(ListView):
     """Список аниме"""
     model = Movie
@@ -72,10 +68,10 @@ class MovieDetailView(DetailView):
     slug_field = 'url'
     template_name = 'movies/moviesingle.html'
 
-
     def get(self, request, slug):
         form = CommentForm()
         movie = Movie.objects.get(url=slug)
+
         """Избранное"""
         is_favorite = False
         if movie.favor.filter(id=request.user.id).exists():
@@ -88,6 +84,7 @@ class MovieDetailView(DetailView):
             'movie': movie,
             'form': form,
             'is_favorite': is_favorite
+
         }
         return render(request, 'movies/moviesingle.html', context)
 
@@ -110,6 +107,7 @@ class MovieDetailView(DetailView):
             else:
                 form = CommentForm()
         return render(request, 'movies/moviesingle.html', {'form': form})
+
 
 def favourite_list(request):
     user = request.user
@@ -219,6 +217,7 @@ class RandomAnime(ListView):
     slug_field = 'url'
     template_name = 'movies/moviesingle.html'
     queryset = Movie.objects.all()
+
 
 class LastUpdate(ListView):
     model = Movie

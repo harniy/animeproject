@@ -117,6 +117,7 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ("user__username", 'post__title', 'content')
 
 
+
 admin.site.site_title = "Anime"
 admin.site.site_header = 'Anime'
 
