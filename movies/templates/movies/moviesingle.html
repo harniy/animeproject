@@ -122,7 +122,7 @@
                         <p class="center_img">
 
                             {% for image in movie.movieshots_set.all %}
-                                <img src=" {{ image.image.url }}" class="img-fluid col-md-3" alt="{{ img.description }}">
+                                <img src=" {{ image.image.url }}" class="img-fluid col-md-3 col-lg-4" style="width:32%;">
                             {% endfor %}
 
                         </p>
