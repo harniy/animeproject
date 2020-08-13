@@ -73,6 +73,7 @@ class Movie(models.Model):
     ongoing = models.BooleanField('Слайдер', default=False)
     time = models.DateTimeField(default=datetime.now)
     favor = models.ManyToManyField(User, related_name='favor', blank=True)
+    likes = models.ManyToManyField(User, related_name='likes', blank=True)
 
 
     def __str__(self):
