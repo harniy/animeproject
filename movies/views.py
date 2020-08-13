@@ -59,7 +59,7 @@ class MoviesView(ListView):
     оно находится в Models.py class Movie и там поле draft"""
     queryset = Movie.objects.order_by("-id").filter(draft=False)
     template_name = 'movies/movies.html'
-    paginate_by = 20
+    paginate_by = 15
 
 
 class MovieDetailView(DetailView):
