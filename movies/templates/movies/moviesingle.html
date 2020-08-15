@@ -1,6 +1,8 @@
 {% extends 'movies/base.html' %}
 {% load static %}
 
+
+
      {% block title %} {{ movie.title }} {% endblock title %}
         {% block meta %} смотреть онлайн аниме {{ movie.title }}, {{ movie.name }} все серии все сезоны аниме {{movie.year}} аниме романтика фентези сенэн драма{% endblock meta %}
 
@@ -18,7 +20,9 @@
                             <center>
                                 <img src="{{ movie.poster.url }}" class="img-fluid" alt="">
                             </center>
+
                         </div>
+
                         <div class="desc1-right col-md-6 pl-lg-4">
                             <h3 class="editContent edit_name" style="outline: none; cursor: inherit;">
                                  {{ movie.title|capfirst }}
@@ -60,6 +64,7 @@
                                         </div>
 
                                  <li style="list-style: none">
+                                {% if request.user.is_authenticated %}
                                 <li style="list-style: none"><span><b>Избранное:</b></i>
 
                                 {% if is_favorite %}
@@ -74,7 +79,8 @@
                                 </span></li>
 
 
-                                </li>
+                                </ul>
+                                {%endif%}
                                 <div class="share-desc">
                                     <div class="share" style="padding-top: 5px;">
                                         <h4 class="editContent"
@@ -110,8 +116,34 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
+
+
                         </div>
                     </div>
+
+                 <div class="like_form col-lg-12" style="display:flex; padding:5px 0;">
+                         <div class="like_button col-lg-1">
+                                {% if request.user.is_authenticated %}
+                                <form action="{% url 'like_post' %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if is_liked %}
+                                    <button type="submit" name="post_id" value="{{ movie.id }}" class="btn btn-danger" style="background:none;outline:none;border:none;">
+                                        <i class="fas fa-heart" style="color:#ff4c4c;font-size:25px;"></i></button>
+                                    {% else %}
+
+                                    <button type="submit" name="post_id" value="{{ movie.id }}" class="btn btn-primary" style="background:none;outline:none;border:none;">
+                                        <i class="far fa-heart" style="color:rgba(0, 123, 255, 0.7);font-size:25px;"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                    <button type="submit" name="post_id" value="{{ movie.id }}" class="btn btn-primary" style="background:none;outline:none;border:none;" disabled>
+                                        <i class="far fa-heart" style="color:rgba(0, 123, 255, 0.7);font-size:25px;"></i></button>
+                                {% endif %}
+                        </div>
+                     <div class="like_count col-lg-8" style="padding-top:5px;">
+                        <p>Понравилось: <span style="color:#212529;font-weight:bold;">{{total_likes}}</span></p>
+                     </div>
+                            </div>
                     <div class="row sub-para-w3layouts mt-5">
 
                         <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">

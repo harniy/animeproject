@@ -15,4 +15,5 @@ urlpatterns = [
     path('last_update/', views.LastUpdate.as_view(), name='last_update'),
     path("<slug:slug>/", views.MovieDetailView.as_view(), name='anime_main'),
     path('movies/<slug:slug>', views.CategoryModel.as_view(), name='category_model'),
+    path('like/$', views.like_post, name='like_post'),
     ]

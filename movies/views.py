@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from .models import Movie, Category, Genre, Comment
 from .forms import CustomerForm, CommentForm
@@ -27,6 +28,19 @@ class GenreYear:
 
     def get_slider(self):
         return Movie.objects.all()
+
+
+def like_post(request):
+    movie = get_object_or_404(Movie, id=request.POST.get('post_id'))
+    """Фильтр для показа кнопки лайк-если пользователь не поставил его и дизлайк, что бы убрать лайк"""
+    is_liked = False
+    if movie.likes.filter(id=request.user.id).exists():
+        movie.likes.remove(request.user)
+        is_liked = False
+    else:
+        movie.likes.add(request.user)
+        is_liked = True
+    return HttpResponseRedirect(movie.get_absolute_url())
 
 
 def accountSettings(request):
@@ -77,13 +91,20 @@ class MovieDetailView(DetailView):
         if movie.favor.filter(id=request.user.id).exists():
             is_favorite = True
 
+        """Фильтр, который показывает кнопку лайк и дизлайк, если лайк поставил"""
+        is_liked = False
+        if movie.likes.filter(id=request.user.id).exists():
+            is_liked = True
+
         """Количество просмотров на странице"""
         movie.views += 1
         movie.save()
         context = {
             'movie': movie,
             'form': form,
-            'is_favorite': is_favorite
+            'is_favorite': is_favorite,
+            'is_liked': is_liked,
+            'total_likes': movie.total_likes(),
 
         }
         return render(request, 'movies/moviesingle.html', context)
@@ -106,7 +127,9 @@ class MovieDetailView(DetailView):
                 return HttpResponseRedirect(movie.get_absolute_url())
             else:
                 form = CommentForm()
-        return render(request, 'movies/moviesingle.html', {'form': form})
+
+        context = {'form': form}
+        return render(request, 'movies/moviesingle.html', context)
 
 
 def favourite_list(request):
