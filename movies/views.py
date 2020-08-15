@@ -76,6 +76,7 @@ class MoviesView(ListView):
     paginate_by = 15
 
 
+
 class MovieDetailView(DetailView):
     """Полное описание аниме"""
     model = Movie
@@ -138,6 +139,11 @@ def favourite_list(request):
     context = {'favourite_posts': favourite_post}
     return render(request, 'movies/favourite_list.html', context)
 
+def like_list(request):
+    user = request.user
+    like_content = Movie.objects.order_by('-time').filter(likes=user.id)
+    context = {'like_content': like_content}
+    return render(request, 'movies/like_posts.html', context)
 
 def favourite_post(request, id):
     movie = get_object_or_404(Movie, id=id)

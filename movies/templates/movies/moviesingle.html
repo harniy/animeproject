@@ -121,8 +121,8 @@
                         </div>
                     </div>
 
-                 <div class="like_form col-lg-12" style="display:flex; padding:5px 0;">
-                         <div class="like_button col-lg-1">
+                 <div class="like_form col-lg-6 col-md-6" style="display:flex; padding:5px 0;">
+                         <div class="like_button col-lg-2 col-md-2">
                                 {% if request.user.is_authenticated %}
                                 <form action="{% url 'like_post' %}" method="POST">
                                     {% csrf_token %}
@@ -137,10 +137,10 @@
                                 </form>
                                 {% else %}
                                     <button type="submit" name="post_id" value="{{ movie.id }}" class="btn btn-primary" style="background:none;outline:none;border:none;" disabled>
-                                        <i class="far fa-heart" style="color:rgba(0, 123, 255, 0.7);font-size:25px;"></i></button>
+                                        <i class="far fa-heart" style="color:rgba(0, 123, 255, 0.7);font-size:25px;float:left;"></i></button>
                                 {% endif %}
                         </div>
-                     <div class="like_count col-lg-8" style="padding-top:5px;">
+                     <div class="like_count col-lg-10 col-md-10" style="padding-top:5px;">
                         <p>Понравилось: <span style="color:#212529;font-weight:bold;">{{total_likes}}</span></p>
                      </div>
                             </div>
