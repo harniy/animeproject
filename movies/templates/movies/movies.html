@@ -11,8 +11,21 @@
                             <div class="col-md-6 col-lg-4 product-men">
                                 <div class="product-shoe-info editContent text-center mt-lg-4" >
                                     <div class="men-thumb-item">
-                                        <a href="{{ movie.get_absolute_url }}"><img src="{{ movie.poster.url }}" class="img-fluid main_img" alt="" ></a>
+                                        <a href="{{ movie.get_absolute_url }}">
+
+                                            <img src="{{ movie.poster.url }}" class="img-fluid main_img" alt="" >
+
+                                        </a>
                                     </div>
+
+                                    <div class="like_main col-md-12 col-lg-12">
+                                        <button type="submit" name="post_id" value="{{ movie.id }}" class="btn btn-primary col-md-4 col-lg-4" style="background:none;outline:none;border:none; width:20%;" disabled>
+                                        <i class="far fa-heart" style="color:rgba(0, 123, 255, 0.7);font-size:25px;float:right"></i></button>
+                                        <div class="like_count col-lg-8 col-md-8" style="padding-top:5px;float:left">
+                                            <p style="float:left;padding-top:0.4em;">Понравилось: <span style="color:#212529;font-weight:bold;">{{movie.total_likes}}</span></p>
+                                        </div>
+                                    </div>
+
                                     <div class="item-info-product">
                                         <h4 class="">
                                             <a href="{{ movie.get_absolute_url }}" class="editContent" >{{ movie.title }}</a>

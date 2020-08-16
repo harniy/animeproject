@@ -11,6 +11,7 @@ urlpatterns = [
     path('random/', views.RandomAnime.as_view(), name='random'),
     re_path('(?P<id>\d+)/favorite/$', views.favourite_post, name='favourite'),
     path('favorites/', views.favourite_list, name='favourite_list'),
+    path('like_posts/', views.like_list, name='like_list'),
     path('accounts/profile/', views.accountSettings, name='profile'),
     path('last_update/', views.LastUpdate.as_view(), name='last_update'),
     path("<slug:slug>/", views.MovieDetailView.as_view(), name='anime_main'),

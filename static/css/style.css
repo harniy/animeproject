@@ -2045,3 +2045,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.like_main {
+    width: 100%;
+    display: flex;
+}

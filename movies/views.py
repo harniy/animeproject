@@ -76,6 +76,7 @@ class MoviesView(ListView):
     paginate_by = 15
 
 
+
 class MovieDetailView(DetailView):
     """Полное описание аниме"""
     model = Movie
@@ -138,6 +139,11 @@ def favourite_list(request):
     context = {'favourite_posts': favourite_post}
     return render(request, 'movies/favourite_list.html', context)
 
+def like_list(request):
+    user = request.user
+    like_content = Movie.objects.order_by('-time').filter(likes=user.id)
+    context = {'like_content': like_content}
+    return render(request, 'movies/like_posts.html', context)
 
 def favourite_post(request, id):
     movie = get_object_or_404(Movie, id=id)
@@ -161,7 +167,7 @@ class CategoryModel(MoviesView, ListView):
 class FilterMoviesView(GenreYear, ListView):
     """Фильтр фильмов по годам"""
     template_name = 'movies/movies.html'
-    paginate_by = 20
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = Movie.objects.order_by('-id').filter(
@@ -180,7 +186,7 @@ class FilterMoviesView(GenreYear, ListView):
 class FilterGenre(GenreYear, ListView):
     """Фильтр фильмов по жанрам"""
     template_name = 'movies/movies.html'
-    paginate_by = 20
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = Movie.objects.order_by('-id').filter(
@@ -199,7 +205,7 @@ class FilterGenre(GenreYear, ListView):
 class FilterCategory(GenreYear, ListView):
     """Фильтр фильмов по жанрам"""
     template_name = 'movies/movies.html'
-    paginate_by = 20
+    paginate_by =15
 
     def get_queryset(self):
         queryset = Movie.objects.filter(
@@ -217,7 +223,7 @@ class FilterCategory(GenreYear, ListView):
 class Search(ListView):
     """Поиск фильмов"""
     template_name = 'movies/movies.html'
-    paginate_by = 20
+    paginate_by = 21
 
     def get_queryset(self):
         return Movie.objects.filter(
@@ -246,4 +252,4 @@ class LastUpdate(ListView):
     model = Movie
     template_name = 'movies/last_update.html'
     queryset = Movie.objects.order_by("-time")
-    paginate_by = 10
+    paginate_by = 15
