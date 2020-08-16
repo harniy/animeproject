@@ -136,13 +136,28 @@ class MovieDetailView(DetailView):
 def favourite_list(request):
     user = request.user
     favourite_post = Movie.objects.order_by('-time').filter(favor=user.id)
-    context = {'favourite_posts': favourite_post}
+    """Пагинация"""
+    p = Paginator(favourite_post, 15)
+    page_num = request.GET.get('page')
+    try:
+        page = p.page(page_num)
+    except:
+        page = p.page(1)
+
+    context = {'favourite_posts': page}
     return render(request, 'movies/favourite_list.html', context)
 
 def like_list(request):
     user = request.user
     like_content = Movie.objects.order_by('-time').filter(likes=user.id)
-    context = {'like_content': like_content}
+    """Пагинация"""
+    p = Paginator(like_content, 15)
+    page_num = request.GET.get('page')
+    try:
+        page = p.page(page_num)
+    except:
+        page = p.page(1)
+    context = {'like_content': page}
     return render(request, 'movies/like_posts.html', context)
 
 def favourite_post(request, id):

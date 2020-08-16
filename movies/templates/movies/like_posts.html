@@ -37,5 +37,13 @@
                             </div>
                           </div>
 <br><br><br>
+    <div class="favor_nav" style="padding: 1rem 0; width: 100%; text-align:center;">
+            {% if like_content.has_previous %}
+            <a href="{% url 'like_list' %}?page={{like_content.previous_page_number}}" style="padding:0 1rem;">Назад</a>
+            {% endif %}
+            {% if like_content.has_next %}
+            <a href="{% url 'like_list' %}?page={{like_content.next_page_number}}">Вперед</a>
+            {% endif %}
+    </div>
 
            {% endblock %}

@@ -37,5 +37,12 @@
                             </div>
                           </div>
 <br><br><br>
-
+    <div class="favor_nav" style="padding: 1rem 0; width: 100%; text-align:center;">
+            {% if favourite_posts.has_previous %}
+            <a href="{% url 'favourite_list' %}?page={{favourite_posts.previous_page_number}}" style="padding:0 1rem;">Назад</a>
+            {% endif %}
+            {% if favourite_posts.has_next %}
+            <a href="{% url 'favourite_list' %}?page={{favourite_posts.next_page_number}}">Вперед</a>
+            {% endif %}
+    </div>
            {% endblock %}
