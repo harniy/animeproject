@@ -134,7 +134,13 @@ LOGIN_REDIRECT_URL = '/'
 
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'miralisanskaa@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = 'rfdfcfrb1'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -218,4 +224,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-SITE_ID = 1
+SITE_ID = 3
