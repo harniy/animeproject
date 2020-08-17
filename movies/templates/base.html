@@ -27,9 +27,26 @@
 <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
     <script src="{% static 'script/jquery.min.js' %}"></script>
+
+        <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+            items:8,
+            autoWidth: true,
+            nav: false,
+            loop: true,
+            margin: 5,
+            autoplay: true,
+            autoplayTimeout: 3500,
+            });
+        });
+    </script>
+
     <script src="{% static 'script/owl.carousel.min.js' %}"></script>
 
     <script src="https://kit.fontawesome.com/ecb9c61dbc.js" crossorigin="anonymous"></script>
+
+
 
 
 <!--Рейтинг-->
@@ -71,6 +88,7 @@ wpac_init.push({widget: 'Rating', id: 26402});
     $(this).parent().parent().next('.replied-comments')
     });
 </script>
+
 
 
 
