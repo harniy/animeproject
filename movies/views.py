@@ -223,7 +223,7 @@ class FilterCategory(GenreYear, ListView):
     paginate_by =15
 
     def get_queryset(self):
-        queryset = Movie.objects.filter(
+        queryset = Movie.objects.order_by('-id').filter(
             category__in=self.request.GET.getlist("category"))
         return queryset
 
