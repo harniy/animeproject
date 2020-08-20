@@ -241,8 +241,7 @@ li > a:only-child:after {
 
 /* Media Queries
 --------------------------------------------- */
-
-@media all and (max-width: 768px) {
+@media all and (max-width: 200px) {
 
     #logo {
         display: block;
@@ -1367,6 +1366,23 @@ a.move-top span {
 
     .left-ads-display {
         margin-top: 2em;
+    }
+
+    .last_update_anime p {
+        font-size: 20px;
+    }
+    .last_box {
+        display: block !important;
+    }
+    .last_anime_pposter {
+       width: 100% !important;
+    }
+    .last_anime_pposter img {
+        height: 300px !important;
+        margin-left: 40%;
+    }
+    .last_anime_title a p {
+        font-size: 25px;
     }
 }
 
