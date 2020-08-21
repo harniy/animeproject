@@ -6,9 +6,8 @@
     {% for movie in last_movies %}
             <div class="special-sec1 row mt-3 editContent d-none d-md-none d-lg-flex ">
                 <div class="img-deals col-12 col-md-4 col-lg-4">
-                    <a href="{{ movie.get_absolute_url }}">
                     <img src="{{ movie.poster.url }}" class="img-fluid img-resize" alt="">
-                    </a>
+
                 </div>
                     <div class=" col-md-4 edc-text">
                         <a href="{{ movie.get_absolute_url }}" class="editContent" >
