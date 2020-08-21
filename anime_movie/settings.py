@@ -226,4 +226,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-SITE_ID = 4
+SITE_ID = 3
