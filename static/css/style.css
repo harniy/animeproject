@@ -1384,42 +1384,8 @@ a.move-top span {
     .last_anime_title a p {
         font-size: 25px;
     }
-    .deal-leftmk h3 {
-        margin-top: 30px !important;
-        font-size: 1.2em;
-    }
-    li.breadcrumb-item {
-        font-size: 1.2em;
-    }
-    .search-bar {
-        font-size: 1.2em;
-    }
-    .img-fluid {
-        max-width: 600px !important;
-        max-height: 600px !important;
-    }
-    .item-info-product h4 a {
-        font-size: 1.1em;
-    }
-    .grid-price {
-        font-size: 22px;
-    }
-
-    .desc1-right {
-        font-size: 25px !important;
-    }
-
-    .desc1-right h3 {
-        font-size: 40px !important;
-    }
-    .desc1-right h5 {
-        font-size: 30px !important;
-    }
-    .sub-para-w3layouts {
-        font-size: 25px;
-    }
-    .contact-single {
-        font-size: 22px;
+    .deal-leftmk {
+        margin-top: 20px;
     }
 }
 
@@ -1452,7 +1418,6 @@ a.move-top span {
     p{
         font-size: 20px !important;
     }
-
 }
 
 @media(max-width:800px) {
@@ -1485,7 +1450,6 @@ a.move-top span {
         margin: 0 auto;
         width: 94%;
     }
-
 }
 
 @media(max-width:767px) {
@@ -1508,9 +1472,7 @@ a.move-top span {
 
     .img-deals {
         float: left;
-        width: 100%;
-        text-align: center;
-        margin-top: 20px;
+        width: 40%;
     }
 
     .img-deal1 {
@@ -1540,15 +1502,13 @@ a.move-top span {
     ol.breadcrumb {
         padding: 1em 1em;
     }
-    .edc-text h6 {
+    .img-deals {
         text-align: center;
-        font-size: 24px;
-        padding: 15px 0;
     }
-    .menu {
-        font-size: 25px;
+    .edc-text h6{
+        text-align: center;
+        font-size: 20px;
     }
-
 }
 
 .search-bar {
@@ -1580,7 +1540,6 @@ a.move-top span {
     h3.tittle {
         font-size: 1.7em !important;
     }
-
 }
 
 @media(max-width:568px) {
@@ -1623,6 +1582,7 @@ a.move-top span {
     .main-banner.inner {
         min-height: 9em;
     }
+
 }
 
 @media(max-width:440px) {
@@ -2116,8 +2076,4 @@ input:checked + .slider:before {
 .like_main {
     width: 100%;
     display: flex;
-}
-
-.img-fluid-movies {
-    max-width: 300px;
 }
