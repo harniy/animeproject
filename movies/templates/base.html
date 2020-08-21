@@ -5,7 +5,25 @@
     <!-- //Meta tag Keywords -->
     <title>{% block title %} {% endblock title %}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="{% block meta %} {% endblock meta %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Яндекс-->
+    <meta name="yandex-verification" content="1c2c00e6c5800092" />
+
+    <!--Google-->
+    <meta name="google-site-verification" content="3mpFmwTxzTaisrSWKBEZXB5pvlQuAcGK2GgRC8oex-o" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175914665-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-175914665-1');
+    </script>
+    <meta name="keywords" content="{% block meta %}{% endblock meta %}" />
 
     {% block vk %}  {% endblock vk %}
     <!-- //Meta tag Keywords -->
