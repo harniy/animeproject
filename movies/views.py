@@ -241,7 +241,7 @@ class Search(ListView):
     paginate_by = 21
 
     def get_queryset(self):
-        return Movie.objects.filter(
+        return Movie.objects.order_by("-id").filter(
             Q(title__icontains=self.request.GET.get('q')) | Q(description__icontains=self.request.GET.get('q')))
 
     def get_context_data(self, *args, **kwargs):

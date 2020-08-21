@@ -25,7 +25,7 @@ SECRET_KEY = '!!@@c^*i!f40l)7(x7!fo$17pj%hav#2p_ij&bh6r6t=ln-^vu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost','45.14.12.224','animezis.com','127.0.0.1']
 
 
 # Application definition
@@ -138,7 +138,7 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = 'miralisanskaa@gmail.com'
+EMAIL_HOST_USER = 'animezissuport@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -226,4 +226,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-SITE_ID = 3
+SITE_ID = 4
