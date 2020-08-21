@@ -1610,6 +1610,9 @@ a.move-top span {
         width: 100%;
         margin-top: 1em;
     }
+    .img-fluid {
+        max-height: 300px !important;
+    }
 
 }
 
