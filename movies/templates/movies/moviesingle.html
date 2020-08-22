@@ -4,7 +4,7 @@
 
 
      {% block title %} {{ movie.title }} {% endblock title %}
-        {% block meta %} смотреть онлайн аниме {{ movie.title }}, {{ movie.name }} все серии все сезоны аниме {{movie.year}} аниме романтика фентези сенэн драма{% endblock meta %}
+        {% block meta %} смотреть онлайн аниме {{ movie.title }}, {{ movie.name }} все серии все сезоны аниме {{movie.year}} года, новые аниме{% endblock meta %}
 
     {% block vk %}
         <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
@@ -14,6 +14,7 @@
             {% endblock container %}
 
 {% block movie %}
+
 <div class="left-ads-display col-lg-8">
                     <div class="row">
                         <div class="desc1-left col-md-6">
@@ -102,7 +103,7 @@
                                                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                             </li>
                                             <li>
-                                                <a href="https://t.me/share/url?url=http://gadjeel2.pythonanywhere.com/{{movie.url}}&text={{movie.title}}" class="soc_icon">
+                                                <a href="https://t.me/share/url?url=http://animezis.com/{{movie.url}}&text={{movie.title}}" class="soc_icon">
                                                     <img style="height: 40px; width: 40px;" src="/static/images/soc_icons/telegram.png" alt="">
                                                 </a>
                                             </li>
@@ -122,7 +123,7 @@
                     </div>
 
                  <div class="like_form col-lg-6 col-md-6" style="display:flex; padding:5px 0;">
-                         <div class="like_button col-lg-2 col-md-2">
+                         <div class="like_button col-2 col-lg-2 col-md-2">
                                 {% if request.user.is_authenticated %}
                                 <form action="{% url 'like_post' %}" method="POST">
                                     {% csrf_token %}

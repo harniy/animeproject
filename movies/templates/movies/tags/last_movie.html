@@ -4,9 +4,11 @@
         <h3 class="sear-head editContent last_url d-lg-none d-md-block" style="margin:auto;">Последние обновления</h3>
     </a>
     {% for movie in last_movies %}
-            <div class="special-sec1 row mt-3 editContent  d-md-none d-lg-flex d-sm-flex">
-                <div class="img-deals col-md-4">
+            <div class="special-sec1 row mt-3 editContent d-none d-md-none d-lg-flex ">
+                <div class="img-deals col-12 col-md-4 col-lg-4">
+                    <a href="{{ movie.get_absolute_url }}">
                     <img src="{{ movie.poster.url }}" class="img-fluid img-resize" alt="">
+                    </a>
                 </div>
                     <div class=" col-md-4 edc-text">
                         <a href="{{ movie.get_absolute_url }}" class="editContent" >
