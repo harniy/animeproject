@@ -1,2 +1,5 @@
-db.sqlite
-3
+<<<<<<< HEAD
+db.sqlite3
+=======
+db.sqlite3
+>>>>>>> origin/master

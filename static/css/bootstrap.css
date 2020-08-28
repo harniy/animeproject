@@ -478,7 +478,11 @@ mark,
 }
 
 .img-fluid {
+<<<<<<< HEAD
   max-width: 300px;
+=======
+  max-width: 310px;
+>>>>>>> origin/master
   max-height: 500px;
   padding: 5px;
 }
