@@ -25,11 +25,9 @@ SECRET_KEY = '!!@@c^*i!f40l)7(x7!fo$17pj%hav#2p_ij&bh6r6t=ln-^vu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['localhost','45.14.12.224','animezis.com','127.0.0.1']
-=======
-ALLOWED_HOSTS = ['localhost','45.14.12.224','animezis.com', "127.0.0.1"]
->>>>>>> 92aaf5377d89580d4fdfe58183efb6b477d56ffb
+
+ALLOWED_HOSTS = ['localhost','animezis.com','127.0.0.1']
+
 
 
 # Application definition
@@ -230,4 +228,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-SITE_ID = 3
+SITE_ID = 4
