@@ -1702,12 +1702,8 @@ h3.edit_name {
 }
 
 .main_img {
-<<<<<<< HEAD
     max-width: 300px;
-=======
     max-width: 290px;
->>>>>>> origin/master
-
 }
 
 
@@ -1720,7 +1716,7 @@ h3.edit_name {
     width: 100%;
 
 iframe {
-    text-align:center;
+    text-align: center;
 }
 }
 .breadcrumb {
