@@ -27,7 +27,7 @@ def get_genre():
 
 @register.inclusion_tag('movies/tags/slider.html')
 def get_slider():
-    slider = Movie.objects.order_by('-id').filter(ongoing=True)[:20]
+    slider = Movie.objects.order_by('-time').filter(ongoing=True)[:20]
     return {'slider': slider}
 
 
