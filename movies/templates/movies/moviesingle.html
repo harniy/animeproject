@@ -219,8 +219,14 @@
                                  style="outline: none; cursor: inherit;">
                                 </div>
                             <div class="comm-content">
+                                <div class="nick-time" style="width:100%;display:flex;">
+
                                 <h5 class="mt-0 editContent"
-                                    style="outline: none; cursor: inherit;">{{ comment.user|capfirst }}</h5>
+                                    style="outline: none; cursor: inherit; width:30%;">{{ comment.user|capfirst }}</h5>
+
+                                <p class='d-none d-lg-block' style="float:right;width:70%;text-align:right;">{{comment.time}}</p>
+
+                                 </div>
                                 <p class="mt-2 editContent word-space" style="outline: none; cursor: inherit; word-break: break-all; font-size: 16px">
                                         {{ comment.content }}
                                 </p>
@@ -243,8 +249,13 @@
                                         </div>
                                           <div class="comm-content2">
 
+                                              <div class="nick-time" style="width:100%;display:flex;">
+
                                               <h5 class="mt-0 editContent" style="outline: none; cursor: inherit;">{{ reply.user|capfirst }}</h5>
 
+                                              <p class='d-none d-lg-block' style="float:right;width:100%;text-align:right;">{{comment.time}}</p>
+
+                                              </div>
                                             <p class="mt-2 editContent word-space" style="outline: none; cursor: inherit; word-break: break-all;">
 
                                                       {{ reply.content }}

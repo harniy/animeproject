@@ -4,7 +4,7 @@ from django.dispatch import receiver
 from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -153,6 +153,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     reply = models.ForeignKey('Comment', null=True, related_name="replies", on_delete=models.CASCADE, blank=True)
     content = models.TextField('Комментарий:', max_length=500)
+    time = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
         return self.post.title
