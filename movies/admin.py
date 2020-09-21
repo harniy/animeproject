@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from django.utils.safestring import mark_safe
 
-from .models import Category, Actor, Genre, Movie, MovieShots, Serias, Profile, Comment
+from .models import Category, Actor, Genre, Movie, MovieShots, Serias, Profile, Comment, Rating
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
@@ -115,6 +115,11 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'post', 'content',)
     """такой метод используется для полей ForeignKey"""
     search_fields = ("user__username", 'post__title', 'content')
+
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'vote',)
 
 
 

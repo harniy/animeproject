@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from .models import Profile, Comment
+from .models import Profile, Comment, Rating
 
 
 class CustomerForm(ModelForm):
@@ -16,3 +16,9 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ('content',)
+
+class RatingForm(ModelForm):
+    class Meta:
+        model = Rating
+        fields = ('vote',)
+        widgets = { 'vote': forms.RadioSelect() }

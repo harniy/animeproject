@@ -88,6 +88,29 @@ class Movie(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    def total_rating(self):
+        anime = Rating.objects.all().filter(post_id=self.id)
+        return anime.count()
+
+    def get_rating(self):
+        anime = Rating.objects.all().filter(post_id=self.id).values('vote')
+        num = []
+        for i in anime:
+            num.append(i)
+        number_vote = len(num)
+        new_list = []
+        for item in num:
+            name = item['vote']
+            new_list.append(name)
+        try:
+            total_rating = sum(new_list)/number_vote
+            total_rating = float('{:.2f}'.format(total_rating))
+        except:
+            total_rating = 8.0
+
+        return total_rating
+
+
     class Meta:
         verbose_name = 'Аниме'
         verbose_name_plural = 'Аниме'
@@ -145,6 +168,33 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+
+class Rating(models.Model):
+    post = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    CHOICE = (
+        (1, '1'),
+        ( 2 , '2'),
+        ( 3 , '3'),
+        ( 4 , '4'),
+        ( 5 , '5'),
+        ( 6 , '6'),
+        ( 7 , '7'),
+        ( 8 , '8'),
+        ( 9 , '9'),
+        ( 10 , '10'),
+    )
+    vote = models.SmallIntegerField('Оценка', default=8, choices=CHOICE)
+
+
+    def __str__(self):
+        return str(self.vote)
+
+    class Meta:
+        verbose_name = 'оценка'
+        verbose_name_plural = 'Оценки'
 
 
 

@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from .models import Movie, Category, Genre, Comment
-from .forms import CustomerForm, CommentForm
+from .forms import CustomerForm, CommentForm, RatingForm
 from django.db.models import Q
 
 
@@ -85,6 +85,7 @@ class MovieDetailView(DetailView):
 
     def get(self, request, slug):
         form = CommentForm()
+        form_rating = RatingForm()
         movie = Movie.objects.get(url=slug)
 
         """Избранное"""
@@ -103,6 +104,7 @@ class MovieDetailView(DetailView):
         context = {
             'movie': movie,
             'form': form,
+            'form_rating': form_rating,
             'is_favorite': is_favorite,
             'is_liked': is_liked,
             'total_likes': movie.total_likes(),
@@ -168,6 +170,19 @@ def favourite_post(request, id):
         movie.favor.add(request.user)
     return HttpResponseRedirect(movie.get_absolute_url())
 
+def rating_form(request):
+    movie = get_object_or_404(Movie, id=request.POST.get('post_id'))
+    form = RatingForm(auto_id=True)
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.post_id = request.POST.get('post_id')
+            instance.save()
+
+    return HttpResponseRedirect(movie.get_absolute_url())
 
 """Генерируем ссылки к каждой категории"""
 

@@ -2077,3 +2077,48 @@ input:checked + .slider:before {
     width: 100%;
     display: flex;
 }
+
+/* Rating css */
+
+#id_vote {
+    display : flex;
+    list-style: none;
+
+}
+
+#id_vote li {
+    padding-right: 6px;
+}
+
+#rating-form {
+    display: none;
+}
+
+.star_icon a:hover {
+    cursor: pointer;
+}
+
+
+.rating-button {
+    width: 100px;
+    height: 30px;
+}
+
+
+
+.star_icon img{
+    width: 20px;
+    margin-bottom: 5px;
+}
+
+.star_icon {
+    font-size : 1.2rem;
+}
+
+.star,
+.star2 {
+    color: orange;
+}
+.star:hover {
+    color: #ff4c4c;
+}
