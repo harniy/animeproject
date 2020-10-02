@@ -74,6 +74,7 @@ class Movie(models.Model):
     time = models.DateTimeField(default=datetime.now)
     favor = models.ManyToManyField(User, related_name='favor', blank=True)
     likes = models.ManyToManyField(User, related_name='blog_posts', blank=True)
+    search = models.CharField('Поиск', max_length=250, blank=True)
 
 
     def __str__(self):

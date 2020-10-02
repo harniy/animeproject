@@ -257,7 +257,7 @@ class Search(ListView):
 
     def get_queryset(self):
         return Movie.objects.order_by("-id").filter(
-            Q(title__icontains=self.request.GET.get('q')) | Q(description__icontains=self.request.GET.get('q')))
+            Q(title__icontains=self.request.GET.get('q')) | Q(description__icontains=self.request.GET.get('q')) | Q(search__icontains=self.request.GET.get('q')))
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
