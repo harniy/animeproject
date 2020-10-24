@@ -175,7 +175,6 @@ def rating_form(request):
     form = RatingForm(auto_id=True)
     if request.method == 'POST':
         form = RatingForm(request.POST)
-
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user

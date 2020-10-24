@@ -220,7 +220,7 @@ nav ul ul li a {
     text-align: left;
 }
 
-/* Second, Third and more Tiers	
+/* Second, Third and more Tiers
  * We move the 2nd and 3rd etc tier dropdowns to the left
  * by the amount of the width of the first tier.
 */
@@ -2079,47 +2079,60 @@ input:checked + .slider:before {
     display: flex;
 }
 
-/* Rating css */
-
-#id_vote {
-    display : flex;
-    list-style: none;
-
-}
-
-#id_vote li {
-    padding-right: 6px;
-}
-
-#rating-form {
-    display: none;
-}
-
-.star_icon a:hover {
-    cursor: pointer;
-}
-
-
-.rating-button {
-    width: 100px;
-    height: 30px;
-}
-
-
-
-.star_icon img{
-    width: 20px;
-    margin-bottom: 5px;
-}
-
-.star_icon {
-    font-size : 1.2rem;
-}
+/* rating */
 
 .star,
 .star2 {
+    font-size:20px;
     color: orange;
+}
+.star_a:hover {
+    cursor:pointer;
 }
 .star:hover {
     color: #ff4c4c;
+}
+
+.rating {
+    width:60%;
+}
+.rating-form {
+    display: flex;
+    transform: rotateY(180deg);
+    float: left;
+    width: 100%;
+}
+
+.rating input{
+    display: none;
+}
+.rating label {
+    display: block;
+    width: 25px;
+
+}
+
+.rating label:before {
+    content: '\f005';
+    display: block;
+    font-family: fontAwesome;
+    position: absolute;
+    font-size: 15px;
+    color: rgb(255, 152, 0);
+}
+.rating label:after {
+    content: '\f005';
+    display: block;
+    font-family: fontAwesome;
+    position: relative;
+    font-size: 15px;
+    color: #f50;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after {
+    opacity:1;
 }
