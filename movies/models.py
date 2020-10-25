@@ -5,6 +5,7 @@ from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.utils import timezone
+from PIL import Image
 
 
 class Category(models.Model):
@@ -159,6 +160,14 @@ class Profile(models.Model):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.avatar.path)
+
+        if img.height > 100 or img.weight > 100:
+            output_size = (200,200)
+            img.thumbnail(output_size)
+            img.save(self.avatar.path)
 
 
 @receiver(post_save, sender=User)
