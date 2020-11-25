@@ -1,9 +1,11 @@
 from django.urls import path, re_path
+from django.views.decorators.cache import cache_page
+
 from . import views
 
 
 urlpatterns = [
-    path('', views.MoviesView.as_view()),
+    path('', cache_page(60)(views.MoviesView.as_view())),
     path('filter/', views.FilterMoviesView.as_view(), name='filter'),
     path('search/', views.Search.as_view(), name='search'),
     path('genre/', views.FilterGenre.as_view(), name='genre'),

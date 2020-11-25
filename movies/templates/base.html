@@ -50,11 +50,13 @@
     <!-- //Fonts -->
 
 
-<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <script src="{% static 'script/jquery.min.js' %}" ></script>
+    <script src="{% static 'script/owl.carousel.min.js' %}"></script>
 
 
-    <script src="https://kit.fontawesome.com/ecb9c61dbc.js" crossorigin="anonymous"></script>
 
 
 
@@ -69,16 +71,28 @@
 
 <div id="page" class="page"><!-- mian-content -->
  {% include 'include/header.html' %}
+ 
     {% block content %}
 
+
     {% endblock content %}
+    <center>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
+<!-- Шапка -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3956102624069790"
+     data-ad-slot="3338568493"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </center>  
  {% include 'include/footer.html' %}
 </div>
 
-        <script src="{% static 'script/jquery.min.js' %}"></script>
-        <script src="{% static 'script/owl.carousel.min.js' %}"></script>
-
-
+ 
         <script>
         $(document).ready(function(){
             $(".owl-carousel").owlCarousel({
@@ -96,7 +110,7 @@
 
 
 <!--Рейтинг-->
-<script type="text/javascript">
+<script type="text/javascript" async>
 wpac_init = window.wpac_init || [];
 wpac_init.push({widget: 'Rating', id: 26402});
 (function() {
@@ -118,9 +132,13 @@ wpac_init.push({widget: 'Rating', id: 26402});
 </script>
 
 
+<script src="https://kit.fontawesome.com/ecb9c61dbc.js" crossorigin="anonymous" async></script>
 
 
-<!--dark mode-->
+
+<!--Реклама-->
+<!--<script data-ad-client="ca-pub-3956102624069790" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
+
 
 </body>
 </html>
