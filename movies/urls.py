@@ -9,7 +9,7 @@ urlpatterns = [
     path('filter/', views.FilterMoviesView.as_view(), name='filter'),
     path('search/', views.Search.as_view(), name='search'),
     path('genre/', views.FilterGenre.as_view(), name='genre'),
-    path('slider/', views.Slider.as_view(), name='slider'),
+    path('slider/', cache_page(60)(views.Slider.as_view()), name='slider'),
     path('category/', views.FilterCategory.as_view(), name='category'),
     path('random/', views.RandomAnime.as_view(), name='random'),
     re_path('(?P<id>\d+)/favorite/$', views.favourite_post, name='favourite'),
@@ -18,7 +18,7 @@ urlpatterns = [
     path('like_posts/', views.like_list, name='like_list'),
     path('accounts/profile/', views.accountSettings, name='profile'),
     path('last_update/', views.LastUpdate.as_view(), name='last_update'),
-    path("<slug:slug>/", views.MovieDetailView.as_view(), name='anime_main'),
+    path("<slug:slug>/", cache_page(60)(views.MovieDetailView.as_view()), name='anime_main'),
     path('movies/<slug:slug>', views.CategoryModel.as_view(), name='category_model'),
     path('like/$', views.like_post, name='like_post'),
     ]
