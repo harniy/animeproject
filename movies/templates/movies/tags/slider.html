@@ -1,7 +1,7 @@
 <div class="gallery">
           <div class="owl-carousel owl-theme">
     <div class="owl-stage-outer" style="max-height:230px;">
-        <div class="owl-stage">
+        <div class="owl-stage" style="min-width: 2000px;">
             {% for slider in slider %}
             <div class="owl-item">
                 <a href="../{{ slider.url }}"><img class="image__own" src="{{slider.poster.url}}" alt="">
