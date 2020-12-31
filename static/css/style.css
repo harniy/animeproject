@@ -1715,8 +1715,11 @@ h3.edit_name {
 }
 
 .main_img {
-    max-width: 300px;
+    min-width: 290px;
     max-width: 290px;
+    max-height: 400px;
+    min-height: 400px;
+    object-fit: cover;
 }
 
 
