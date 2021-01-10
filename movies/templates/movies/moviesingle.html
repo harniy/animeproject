@@ -6,6 +6,7 @@
      {% block title %} {{ movie.title }} смотреть онлайн | аниме онлайн {{ movie.title }}{% endblock title %}
         {% block meta %} {{ movie.title }} смотреть онлайн аниме , {{ movie.name }} все серии все сезоны аниме {{movie.year}} года, новые аниме{% endblock meta %}
 
+        {% block description %}Смотреть онлайн аниме {{ movie.title }},{{ movie.name }}, {{ movie.search }} - {{ movie.description|slice:":255"|safe }}{% endblock description %}
  
             {% block container %}
                 <div class="container-fluid py-md-3">
