@@ -144,7 +144,7 @@ EMAIL_HOST_USER = 'animezissuport@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'rfdfcfrb1'
+EMAIL_HOST_PASSWORD = 'rfnwfrjfnkm1'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
