@@ -18,7 +18,7 @@ urlpatterns = [
     path('like_posts/', views.like_list, name='like_list'),
     path('accounts/profile/', views.accountSettings, name='profile'),
     path('last_update/', views.LastUpdate.as_view(), name='last_update'),
-    path("<slug:slug>/", cache_page(60)(views.MovieDetailView.as_view()), name='anime_main'),
+    path("<slug:slug>/", views.MovieDetailView.as_view(), name='anime_main'),
     path('movies/<slug:slug>', views.CategoryModel.as_view(), name='category_model'),
     path('like/$', views.like_post, name='like_post'),
     ]
