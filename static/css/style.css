@@ -15,6 +15,12 @@ body a {
     -ms-transition: 0.5s all;
 }
 
+iframe {
+    max-width: 100%;
+}
+
+
+
 a:hover {
     text-decoration: none;
 }
@@ -1715,8 +1721,7 @@ h3.edit_name {
 }
 
 .main_img {
-    min-width: 290px;
-    max-width: 290px;
+    max-width: 100%;
     max-height: 400px;
     min-height: 400px;
     object-fit: cover;
@@ -1730,10 +1735,6 @@ h3.edit_name {
 
 .gallery {
     width: 100%;
-
-iframe {
-    text-align: center;
-}
 }
 .breadcrumb {
     padding: 0.75rem 1rem;
@@ -1936,7 +1937,7 @@ iframe {
 
 .contact-single {
     display: block;
-    width: 100%; !important
+    width: 100%; 
 }
 
 .single-form-left {
